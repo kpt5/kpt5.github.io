@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<!-- ■
+言語コードの指定。ほとんどの場合は問題なく表示されるが、ブラウザの設定によってはフォントの選別やプラグイン（翻訳機能）とかがうまく機能しない場合がある
+-->
+<html lang="ja">
+
+<head>
+  <!-- IE8+に対して「IE=edge」と指定することで、利用できる最も互換性の高い最新のエンジンを使用するよう指示 -->
+  <!-- IEの互換表示を強制的に標準モードにする -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- charsetの指定はheadタグの一番最初(titleなどの要素内容に日本語を含むかもしれない要素の出現よりも前)で行う -->
+  <!-- ■
+パフォーマンスのために使用する文字のエンコーディング
+meta：META-informationの略
+charset：character setの略。
+最初のオプションとしてHTTPヘッダで指定し、HTTPヘッダとmetaタグでの指定が同じであることを確認。
+文字化けの原因。ファイル保存時の文字コードなどにも気を付ける
+  -->
+  <meta charset="utf-8">
+
+  <!-- ページタイトル＝サイト名(～30文字程度) -->
+  <title>■ページタイトル＝サイト名(～30文字程度)■</title>
+
+  <!-- content属性にページの紹介文（80～120文字で多くても200文以内）を記述 -->
+  <!-- 検索結果に出てきた際にリンクの下に書かれてあるサイトの概要部分になる -->
+  <!-- タイトル同様に全ページで同じ記述にする-->
+  <meta name="description" content="■ページの紹介文（80～120・200文以内）■">
+
+  <!-- content属性にページの著者情報を記述 -->
+  <!-- SEO的には2015年時点で関係ないようなので、あってもなくても良い -->
+  <meta name="author" content="■ページの著者情報■">
+
+  <!--  モバイル端末への対応。ページをビューポートの幅に合わせてコンテンツの幅を調整（Android, iOS6以降）-->
+  <!--  ズームを許可しない設定「user-scalable=no」は加えない -->
+  <!--  width=device-width：　端末に合った表示領域を幅を自動で設定。-->
+  <!-- initial-scale=1：　初期のズーム倍率100％表示 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- content="yes"の場合、スマートフォンでアクセス時、ブラウザの枠をなくしアプリっぽい動作にする（フルスクリーンモード）（任意） -->
+  <!-- <meta name="apple-mobile-web-app-capable" content="yes">-->
+
+  <!-- スマートフォンサイト時、電話番号自動リンク停止（任意） -->
+  <!--  <meta name="format-detection" content="telephone=no">-->
+
+  <!-- ■
+スタイルシート：できるだけ早く読み込まれるよう、HTMLドキュメントの上の方に記述する。
+HTML5では、script要素、style要素に対する、type属性は不要。非推奨。
+rel：relationの略
+href：hypertext referenceの略
+   -->
+  <!-- スタイルシートの<link>タグを指定する場合には、rel属性とhref属性が必須。href属性にスタイルシートファイルのURIを記述。-->
+
+  <!-- リセットCSS -->
+  <!-- ■
+CSSの記述量を増やしてでもブラウザ間の表示を統一させたい場合、リセットCSSをセットする
+reset.cssを作らないで、外部サーバーから呼び出すことも可能だが、レスポンスの低下や読み込みミスが発生することもある。
+ress（ https://github.com/filipelinhares/ress ）がオススメ
+  -->
+  <!-- <link rel="stylesheet" href="css/reset.css"> -->
+
+  <!-- Bootstrap -->
+  <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+
+  <!-- Font Awesome -->
+  <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
+
+  <link rel="stylesheet" href="./css/テンプ.css">
+
+  <link rel="stylesheet" href="./css/responsive.css">
+
+  <!-- IE8以下用に2つのスクリプトを記述
+    html5shiv.js: IE8以下にHTML5の要素を認識するようにさせる
+    respond.js: IE8以下にMedia Queriesの代替え機能を提供 -->
+  <!-- HTML5やレスポンシブをIE8以下に認識させる場合記述 -->
+  <!-- 以下、コメントアウトのままにしておく -->
+  <!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- href属性にファビコンファイルのURIを記述 -->
+  <!-- <link rel="shortcut icon" href="■ファビコンファイルのURI.ico■">-->
+
+
+  <!-- コメントアウトしてあるコードは、iOS/Android用のアイコン指定 -->
+  <!--
+  <link rel="icon" sizes="196x196" href="■Android用のアイコン■">
+  <link rel="apple-touch-icon" sizes="152x152" href="■iOS用のアイコン■">
+  -->
+
+  <!-- ページの読み込みに関するスクリプトはheadに記述しておかないとページの読み込みが遅くなる。そのため、スクリプトでブロッキングを起こさないものはここに記述。 -->
+  <!-- 可能であれば「async（文書の読み込みが完了した時点でスクリプトを実行）」を使用 -->
+  <!-- <script src="my-script.js" async></script> -->
+</head>
+
+<body>
+  <!-- ■
+header：コンテンツの前置き
+  -->
+  <!-- ★ロゴ画像と上部ナビ -->
+  <header class="top_head" id="top_head">
+    <!-- ■
+div：前後に改行が入るブロック要素のグルーピングタグ。division（仕切り）の略
+ブロック要素は親要素の幅いっぱいに広がるが、中に実体がないと表示さない。
+     -->
+    <div class="container">
+      <div class="header-left">
+        <!-- ■
+img要素は、body要素直下以外のブロックの内部に配置する。閉じタグはなし。
+src：sourceの略。alt：alternate text（代替テキスト）の略。
+アクセシビリティの観点から<img>タグには必ずalt属性をつける 
+        -->
+        <!-- alt属性：画像の代わりに表示させる「代替テキスト」（必須） -->
+        <img class="logo" src="./img/logo.png" alt="■ロゴimg代替テキスト■">
+      </div>
+      <!-- nav要素は主要なナビゲーションにのみ用いる。多くても３つくらい。リンク集は非nav -->
+      <!-- navの中身はリスト要素であるべき -->
+      <nav>
+        <!-- スマホ用メニューアイコン -->
+        <!-- ■
+span：前後に改行は入らないインライン要素のグルーピングタグ。
+インライン要素の前後にはインデントは入れない。
+ECサイトの価格表示などで多用されます。                
+         -->
+        <span class="fa fa-bars menu-icon"></span>
+        <div class="header-right">
+          <!-- unordered list（順序無しリスト） -->
+          <ul>
+            <!-- ■
+a：anchorの略で、ハイパーリンクを表します。文字列や画像に外部リンク、内部リンクを指定 
+href：hypertext referenceの略。
+aタグの中に、「target="_blank"」を追加で、リンク元のページを閉じることなく、リンク先を開かせる 
+target指定なしでクリックした画面をそのまま切り替える。
+
+rel 属性：リンク先のページとの関係を定義する
+rel 属性を渡さない場合、リンク先のページからwindow.openerを通じてリンク元のページへアクセスすることができます。
+●結論：同ドメインでかつ、target="_blank" がセットされている場合は、rel="noopener noreferrer" をセットする
+noopener：リンク先のページから、window.openerを通じたアクセスできないようにします。
+  ※noopenerは比較的新しい機能のため、IEとEdgeなどでは未対応（2019.11）
+  https://caniuse.com/#feat=rel-noopener
+noreferrer：リンク先のページに対して、HTTPヘッダを通じてリンク元のページの情報を送信しないようにします。
+opener が自由に使えるとなると、例えば「知らないうちに、元ウィンドウ側がフィッシングサイトに遷移されている」というように悪用される可能性も考えられます。
+window.opener にアクセスできたのは、以下の条件が全て満たされた場合のみでした。
+・同ドメイン
+・target="_blank" がセットされている
+・rel="noopener noreferrer" がセットされていない
+
+ページ内外の 特定箇所へのリンク方法 
+①リンク先の要素や文字列、画像にidをつける。またはname属性の付いたaタグで囲む 
+<要素名 id="id名"></要素名> 
+<a name="ラベル名">リンク先要素や文字列、画像</a> 
+②idまたはラベルをリンク先URLとして指定する 
+<a href="#id or ラベル名">リンク元要素や文字列、画像</a> 
+他のページの場合：<a href="./index.html#id or ラベル名">リンク元要素や文字列、画像</a> 
+
+メーラーの立ち上げ：<a href="mailto:メールアドレス&#64;gmail.com">リンク文字列（または、画像URI ）</a> 
+メーラーが起動し、宛先欄にメールアドレスが入ったメール編集画面が開きます。 
+※メールアドレスをそのまま打つとメールアドレスを Webページに公開することになり、収集ロボットに収集されます。 ウィルスやSPAMメール（迷惑メール）の恐れあり。
+-->
+            <li><a href="#top">top</a></li>
+            <li><a href="#iframe">iframe</a></li>
+            <li><a href="#foot">foot</a></li>
+            <li><a href="■URL■">about</a></li>
+            <li><a href="■URL■">メニュー</a></li>
+            <li><a href="■URL■">新規登録</a></li>
+            <li><a href="■URL■">ログイン</a></li>
+            <li><a href="■URL■" target="_blank" rel="noopener noreferrer">お問い合わせ</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <div class="top-wrapper" id="top">
+    <div class="container">
+      <!-- IE11がmainタグに対応していないため、role="main"のdivタグで代用 -->
+      <!-- ■
+role="main"：文書で固有のコンテンツ。複数アクティブは不可。not（サイドバー、ナビゲーションリンク、著作権表示、サイトロゴ、検索フォームのような、ページにまたがって繰り返されるもの） 
+直下に配置されるのは基本的にarticleやsection 
+      -->
+      <div class="main" role="main">
+        <!-- article：独立または自己完結しているコンテンツとその関連情報。 -->
+        <!-- 複数可。入れ子可。必ず見出しをつける。 -->
+        <!-- ■
+抜粋なのか、全表示なのか表示形式は問わない。 
+ex.コメント部分を含んだ記事全体・コメントの一つ一つ 
+    -->
+        <article>
+          <header>
+            <!-- ■
+一般的に大見出しの h1 は、ページタイトルに使用し、各article・sectionの見出しとして <h2>～<h3>タグまでを順に使用します。
+            -->
+            <h1>■（header）heading１ = ページタイトル■</h1>
+            <p>■paragraph　日付・署名・カテゴリなどの付帯情報■</p>
+          </header>
+          <!-- section：articleに該当しないひとかたまりのコンテンツ -->
+          <!-- 必ず見出しをつける。＝section直後には大体h1～6が来る。 -->
+          <section>
+            <!-- ★標準的な記事 -->
+            <div class="sec_1">
+              <h2>■（.sec_1）h２：大見出し■</h2>
+              <!-- ■
+<br>とはbreak（改行）の略。テキストや画像等をブラウザ上で改行させたいときに使用。
+俳句や住所など意味のある改行を表します。Webページの見た目を整えるためにbr要素を使ってはなりません。見た目はCSSで整えます。よってHTML5においてbr要素は滅多に使用しません。
+             -->
+              <!-- emタグは、emphasis（強調）の略。抑揚。ニュアンス。斜体の太文字、イタリック体 -->
+              <!-- ■
+emタグは、強調させることによって文章の意味を変えたいときに使用（アクセントをつける）。
+抑揚の位置によって文章のニュアンスが変わる場合に用います。
+囲まれた文字が斜体の太文字、「イタリック体」で表示される
+入れ子にすることで、コンテンツの特定個所が持つ強勢の度合いを指定し分けることができます。
+             -->
+              <!-- <strong>：まっさきに見てほしいテキスト。結論。コンテンツの肝 -->
+              <!-- ■
+<strong>まっさきに見てほしいテキストに対して使用するタグ。入れ子にして使用することでより重要性を高める。結論のようなコンテンツの肝となるテキストに用いる。そのため、文中の重要キーワードすべてにstrongタグを使用するのは間違った使い方です。できるかぎりページ内のここぞという部分だけで使う。
+             -->
+              <!-- <mark>：別の場所で参照、言及するためにハイライトするテキスト -->
+              <!-- ■
+mark要素は、別の場所で参照、言及するテキストをハイライトする要素です。ただ目立たせるための目的で利用するべきではありません。この要素は重要や強調といった意味を持ちません。そういった意味付けを行なうには、em要素やstrong要素を使って下さい。別の場所で言及するわけではなく、ただ目立たせたいためだけにこの要素を用いるのは間違いです。
+ページ内に複数使うことができます。この要素自体を入れ子構造にすることはできません。
+                          -->
+              <!-- bタグ(bold text)：テキストを他と区別する最後の手段。装飾目的 -->
+              <!-- ■
+bタグは、上記以外で目立たせたい場合、最後の手段として使用する。
+テキストの重要性や強調目的ではなく単にテキストを他と区別する目的で使用できます。
+一般的にコンテンツ内の特定のテキストを装飾目的で目立たせるにはbタグを使用する。
+CSSを用いれば太字ではなくテキストの色を変えたり背景色を付けたりできます。
+             -->
+              <!-- <del>：delete（削除する）の略。削除されたことを示す。打ち消し線。 -->
+              <!-- ■
+囲まれた部分が削除されたことを示し、打ち消し線が付きます。使用する場所により、ブロックレベル要素になるかインライン要素になるかが変わります。
+「delタグ」を使う時は検索エンジンからSEO的に評価を下げたい時に使う。
+このタグは検索エンジンに「タグ内の情報が削除された情報であること」を伝える
+検索エンジンからの評価を下げたくない時は、spanタグ+CSSで記述する。
+                          -->
+              <!-- <hr>：horizontal rule（水平方向の罫線）の略。終了タグなし。テーマや話題の区切り -->
+              <!-- ■
+<hr>：自動的にその前後で改行されます。意味的な区切りにはなりませんので、SEO対策上も特に影響はありません。
+セクション同士の区切りとなる </section>と<section> の間については、すでにそれ自体でテーマの区切りを表しているので、 <hr> を挿入する必要はありません。
+HTML5では属性はすべて廃止されています。
+hrタグの色や太さはスタイルシートで設定することができますが、ブラウザによって表示のされ方に違いがあります。主に、ＩＥ６での表示のされ方に違いがあります
+ガラケーの携帯サイトの場合、外部スタイルシートが使用できませんので、このhrを駆使して見やすくしているケースが多い
+                          -->
+              <p>
+                ■p　本文■
+                <br>改行
+                <em>em：emphasis（強調）</em>
+                <strong>strong</strong>
+                <mark>mark</mark>
+                <b>b：bold text</b>
+                <del>del：取り消し線</del>
+                <!-- <hr> -->
+              </p>
+            </div>
+            <section>
+              <!-- ★orderd list（ol：順序付きリスト） -->
+              <div class="sec_1-1">
+                <h3>■（.sec_1-1）h３_orderd list（ol：順序付きリスト）■</h3>
+                <!-- リストタグ直下にはliタグしか置けない。liタグ内部には見出しタグや画像タグなどを入れてOK。ただし、各liタグ内のタグ構造は統一する。 -->
+                <ol>
+                  <li>
+                    <h4>■li：list item１■</h4>
+                    <!-- アクセシビリティの観点から<img>タグには必ずalt属性をつける -->
+                    <!-- alt属性：画像の代わりに表示させる「代替テキスト」 -->
+                    <!-- ■
+サムネイル（Thumbnail）：縮小された画像を代替にて掲載することによりページの表示スピード向上を図る手法
+widthとheightは指定しない場合は原寸で表示。
+                     -->
+                    <a href="./img/元の画像.jpg" target="_blank" rel="noopener noreferrer"><img src="./img/縮小されたサムネイル画像.jpg" alt="■img代替テキスト■"></a>
+                    <p>■p：説明１■</p>
+                  </li>
+                  <li>
+                    <h4>■h4：li２■</h4>
+                    <img src="./img/画像.jpg" alt="■img代替テキスト■">
+                    <p>■p：説明２■</p>
+                  </li>
+                </ol>
+              </div>
+            </section>
+            <section>
+              <!-- ★入力・送信form -->
+              <div class="sec_1-2">
+                <h3>■（.sec_1-2）h３_入力・送信form■</h3>
+                <!-- action：フォームの入力内容をどこに送るか、送信先のページを指定。 -->
+                <!-- method：フォーム送信の通信方式(get/post)を指定。 -->
+                <form action="#" method="post">
+                  <!-- ■
+<input>：閉じタグなし。
+inputタグでよく使う属性
+type="〇〇"  入力方式(必須)です。テキスト入力欄やラジオボタンなどタイプを選択（下記参照）
+name="〇〇"  入力項目(必須)です。フォーム送信で受け渡す項目名。
+value="〇〇"  入力値(任意)です。実際に入力した値が入る属性。初期値を入れる場合に設定。
+placeholder="〇〇"  プレースホルダー(任意)。薄い字で記入例などを設定できる。
+               -->
+                  <!-- ■
+type="text"  テキスト入力欄
+type="radio"  ラジオボタン
+type="checkbox"  チェックボックス
+type="hidden"  隠し入力欄。ユーザーに入力させない（非表示）だが、埋め込みたい値など。
+type="submit"  送信ボタン。value="〇〇"の値はボタンに表示されるテキストになる。
+type=""  リセットボタン
+type="password"  パスワード入力欄
+type="password"は表示上は見えないだけで内部間の通信ではパスワードを閲覧できてしまいます。盗聴などを防ぐためにはSSL通信などで暗号化する必要があります。
+               -->
+                  <!-- ■
+フォームの要素をラベル要素で囲むと、ラベルの文言までフォーム要素のクリック領域が広がる。
+for属性に対象要素のidを指定すると、離れた場所にある要素や、複数の要素をフォーム要素のクリック領域に含めることができ、古いブラウザにも対応できる。
+セレクトボックスでvalueを省略する場合は、<option> と</option>で挟まれたモノがvalueとして認識される。
+                                -->
+                  <!-- 一行入力欄 -->
+                  <label>名前：
+                    <input type="text" name="name" value="" placeholder="名前">
+                  </label>
+                  <!-- ラジオボタン -->
+                  <p>
+                    <label>男性：<input type="radio" name="sex" value="man"></label>
+                    <label>女性：<input type="radio" name="sex" value="woman"></label>
+                  </p>
+                  <!-- セレクトボックス -->
+                  <lavel>年齢：
+                    <select name="age">
+                      <option>選択してください</option>
+                      <script>
+                        //                        SlectAge();
+                        for (var i = 18; i <= 65; i++) {
+                          document.write("<option value=" + i + ">" + i + "歳</option>");
+                        }
+                        //                          document.write("<option value='i'>");
+                        //                          document.write(i);
+                        //                          document.write("歳</option>");
+                        //                        }
+                      </script>
+                    </select>
+                  </lavel>
+                  <label>好きな動物：
+                    <select name="animal">
+                      <option value="dog">犬</option>
+                      <option value="cat" selected>猫</option>
+                      <option value="bird">鳥</option>
+                      <option value="lion">ライオン</option>
+                    </select>
+                  </label>
+                  <!-- 複数行のテキスト入力欄 -->
+                  <p>
+                    <!-- ■
+textarea：maxlength属性を利用することで、HTMLのタグだけJavaScriptを利用しなくても最大文字数を制御することができます。
+行数はrows属性、横幅はcols属性で指定
+                 -->
+                    <textarea name="message" rows="8" cols="80" placeholder="なにかメッセージがありましたらこちらに記入ください"></textarea>
+                  </p>
+                  <!-- input type="submit"にnameいる？ -->
+                  <p><input type="submit" name="submit" value="送信する"></p>
+                </form>
+              </div>
+            </section>
+            <section>
+              <!-- ★表 -->
+              <div class="sec_1-3">
+                <h3>■（.sec_1-3）h３_表■</h3>
+                <!-- ■
+【 テーブル要素の属性 】
+属性説明
+summary：　音声読み上げブラウザなどのため表の内容説明を記述します。
+abbr：　主に th の属性で使用し音声ブラウザのためセルの内容を記述します。
+cellspacing=n：　内枠の太さを示します。「0」は、立体感のない枠線
+border=n：　外枠線の太さを示します。０〜７まで。この属性を記述しないか、初期値0は枠線を非表示。
+colspan=n：　td の属性で使用、横方向 ｎ個のセルを連結します。
+rowspan=n：　td の属性で使用、縦方向 ｎ個のセルを連結します。
+width：　表の幅をピクセルpxか、%で指定します。
+               -->
+                <table border="1">
+                  <!-- <caption>：表タイトル -->
+                  <caption>■caption：表タイトル■</caption>
+                  <!-- ■
+<col>：テーブル（表）の縦列の属性をまとめて指定する 
+<colgroup>：テーブル（表）の縦列をグループ化する 
+                  -->
+                  <!-- thead：テーブル（表）のヘッダ行 -->
+                  <thead>
+                    <!-- table rowの略。テーブルの行 -->
+                    <tr>
+                      <th colspan="3">■th：A■</th>
+                    </tr>
+                    <tr>
+                      <!-- <th>：table headerの略。ヘッダセル。テーブルのヘッダー見出しセル -->
+                      <!-- ■
+thタグはかならず使わなければならないものではありません。tdタグのみで記述しても表は作れます。
+                       -->
+                      <th>■table header（th）１■</th>
+                      <th>■ヘッダセル（th）２■</th>
+                      <th>■th３■</th>
+                    </tr>
+                  </thead>
+                  <!-- <tbody>：テーブルの本体となる行グループ。複数可。 -->
+                  <!-- <tbody>：caption要素、colgroup要素、thead要素よりも後に配置 -->
+                  <tbody>
+                    <tr>
+                      <!-- <td>：table dataの略。テーブルのデータセル -->
+                      <td>■table data（td）　A１■</td>
+                      <td>■データセル（td）　A２■</td>
+                      <td>■td：A３■</td>
+                    </tr>
+                    <tr>
+                      <td>■td：B１■</td>
+                      <td>■td：B２■</td>
+                      <td>■td：B３■</td>
+                    </tr>
+                  </tbody>
+                  <!-- <tfoot>：1つの表の中に1つだけ。table要素内の一番最後に配置 -->
+                  <!-- <tfoot>：テーブルのフッタとなる行グループを表す要素。カラムの要約で構成されます。 -->
+                  <tfoot>
+                    <tr>
+                      <th>■th　合計など■</th>
+                      <td>■td：C１　合計など■</td>
+                      <td>■td：C２　合計など■</td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </section>
+            <section>
+              <!-- ★組み込みコンテンツーiframe（inline frameまたはアイフレーム）・object -->
+              <div class="sec_1-4" id="iframe">
+                <h3>■（.sec_1-4）h３_組み込みコンテンツーiframe（inline frameまたはアイフレーム）・object■</h3>
+                <!-- ■
+SEO対策のため、出来るだけiframeは使わないようにする。
+「iframeで読み込まれたコンテンツ」は、コンテンツの一部として評価されないため、iframeによるSEO効果はほぼ期待できないから。
+<iframe>タグをコピペでYoutubeやGoogleMAP、twitter、facebook、instagram、amazonとかの商品などを埋め込むことが出来る 
+YouTubeから出力されたHTMLはそのままコピペというわけにはいかない。iframeに指定されたframeborder=0がHTML5では非推奨となっているため、これを削除し、CSSでiframe {border:0;}を指定する。
+自分のサイトの更新情報を入れることがよくある。
+「https」から始まるサイトは、同じく「https」で始まるサイトじゃないとインラインフレーム内で表示できません。
+-->
+                <!-- ■
+<iframe>の属性
+src：組み込むHTMLファイルのURL・出処
+※相対URLで記述する場合、異なるフォルダーにあるURL（html）を混在させると、カレントフォルダーが移動してしまい、htmlページが正常に表示されなくなる場合があります。
+→別フォルダーのhtmlを指定する場合、絶対URLで記述する
+name：親ページの要素のtarget属性で指定するための任意の名前（_（アンダーバー）始まりはNG）
+width：インラインフレームの幅をピクセルで指定。単位なし整数値。マイナスは不可。デフォルト：300px
+height：インラインフレームの高さピクセルで指定。単位なし整数値。マイナスは不可。デフォルト：150px
+srcdoc：組み込むHTMLファイルをURLでなくソースを直書き
+seamless：シームレスモードで表示（HTML5勧告で削除）
+sandbox：セキュリティ強化のため、組み込むHTMLファイルの機能を制限する
+その他、id, class, title, style などのグローバル属性            
+-->
+                <!-- ■
+target="（下のキーワード5つのうちどれか1コ）"
+_blank ：新規のウィンドウに表示します（ブラウザによっては新規タブで表示します）
+_self：　現在と同じウィンドウ（フレーム）に表示（デフォルト）
+_parent：すぐ上の親ウィンドウ（フレーム）に表示
+_top：フレームを解除してウィンドウ全体に表示（=最上位のウィンドウに表示）
+ウィンドウ（フレーム）名：その名前のウィンドウ（フレーム）に表示（name属性で名前をつけておきます）
+-->
+                <!-- ■
+sandboxを指定されたインラインフレーム内のHTML文書は、別オリジンとして扱われ、ここから外部（親も含む）への target指定が不可になり、フォーム・スクリプト・プラグインが無効になる。あんまり不用意に使わないほうがイイ
+-->
+                <!-- ■
+制限解除のキーワード（キーワードは「半角スペース」で区切って複数指定OK）
+値無しで単に sandbox
+sandbox="allow-forms"（formの送信の機能だけ有効にする）
+sandbox="allow-scripts"（ポップアップを除くJavaScriptの実行だけを許可）
+sandbox="allow-popups"（ポップアップの表示を許可）
+sandbox="allow-same-origin"（親のHTMLと同じオリジンとして扱わせる。Cookieなどへのアクセスを許可）
+sandbox="allow-top-navigation"（最上位の親 (target_top)だけは操作できるようにする）
+-->
+                <!-- iframeのシンプルな利用方法 -->
+                <div class="iframe_default">
+                  <h4>■（.sec_1-4-）h4_iframeのシンプルな利用方法■</h4>
+                  <iframe src="smp63_1.html">
+                    ■iframeに対応していないブラウザに表示するメッセージや説明、リンク■
+                  </iframe>
+                </div>
+                <!-- リンククリックでiframeのコンテンツを表示する方法 -->
+                <div class="iframe_link">
+                  <h4>■（.sec_1-4-）h4_リンククリックでiframeのコンテンツを表示する方法■</h4>
+                  <p>下のリンクをクリックしてください。</p>
+                  <ul>
+                    <li>
+                      <a href="http://webdesign.practice.jp/" target="target_box">
+                        ■＊Web Design 覚え書き＊を表示■
+                      </a>
+                    </li>
+                    <li>
+                      <a href="http://honttoni.blog74.fc2.com/" target="target_box">
+                        ■ほんっとにはじめてのHTML5とCSS3を表示■
+                      </a>
+                    </li>
+                  </ul>
+                  <iframe name="target_box" style="width:90%">
+                    上のリンクをクリックしてください。
+                  </iframe>
+                </div>
+                <!-- iframe内に組み込むHTMLソースを直書き -->
+                <div class="iframe_srcdoc">
+                  <h4>■（.sec_1-4-）h4_iframe内に組み込むHTMLソースを直書き■</h4>
+                  <iframe src="smp63-4.html" srcdoc="
+<h3>srcdocの属性値としてHTMLソースを書く</h3>
+<ul>
+  <li>body要素の開始終了タグとその外側の要素は省略可能</li>
+  <li>a要素でリンクを貼るとエラーになるようです</li>
+  <li>要素にstyleなどの属性を使ってもエラーになる</li>
+</ul>
+                " style="width:90%">
+                    ■対応していないブラウザに表示するメッセージや説明、リンク■
+                  </iframe>
+                </div>
+                <!-- 組み込みコンテンツでiframeが使えない時の代替案「objectタグ」 -->
+                <div class="obj">
+                  <h4>■（.sec_1-4-）h4_iframeが使えない時の代替案「objectタグ」■</h4>
+                  <!-- ■
+object要素は「動画、画像、音声、HTML」など様々な形式のファイルを読み込み表示することができます。
+objectではsrc属性ではなく、data属性に埋め込みたいページのURLを記述します。width属性やheight属性を使って幅と高さを指定することも可能です。
+あくまで代替案にすぎません。webページや動画を埋め込む場合はiframeを優先して使用する
+                  -->
+                  <object data="https://webliker.info/yomikata-wakarukun/">
+                    このサイトは現在表示できません。
+                    <!-- 埋め込みできない場合の代替データ -->
+                  </object>
+                </div>
+              </div>
+            </section>
+            <section>
+              <!-- ★video：サーバーにアップロードした動画を埋め込む -->
+              <div class="sec_1-5">
+                <h3>■（.sec_1-5）h３_video：サーバーにアップロードした動画を埋め込む■</h3>
+                <!-- ■
+旧ブラウザではサポートされていない場合があります。
+IE8以前では<head>~</head>の中に以下のコードを書くだけで対応OKです。
+                -->
+                <!--[if lt IE 9]>
+  <script src="http://api.html5media.info/1.2.2/html5media.min.js"></script>
+<![endif]-->
+                <!-- ■
+<video>タグがサポートされていない環境で表示させるメッセージを記述することができます。
+<source>タグを使用することで、ブラウザに動画の再生候補を提示できます。 <source>タグでは、フォーマットの異なる動画データを複数指定することができます。ブラウザは、記述された順に再生可能なデータを利用する。
+現在ではmp4をほとんどのブラウザが対応。
+mp4のコーデックは「AVC形式」「H.264形式」にする
+場合によってはサーバ側での設定が必要になります。
+スマホで動画を使用したサイトを制作したい場合は、1MB以下を目標に出来るだけ動画の容量を下げましょう。
+Androidでのvideo再生は、Basic認証をかけていると動画が再生されません。
+Basic認証下でも再生させるには、.htaccessにて解決できるようです。
+ex.映像と同時に字幕を表示
+             -->
+                <!-- ■
+※WordPressのvideoショートコードを使用する場合はオプションの指定方法が違います。
+src属性：　動画ファイルを指定する
+poster属性：　動画が表示できない場合や、再生する準備が整うまでの間に表示される画像を指定。
+controls属性：　動画のコントロールパネルを表示。表示はブラウザに依存します。
+muted属性：　無音で再生
+  chrome：　muted属性があれば自動再生可能
+  safari：　muted属性がある、もしくは「元から音がない動画ファイル」であれば自動再生可能
+loop属性：　繰り返して再生
+autoplay属性：　ページを開いたときに動画を自動再生
+preload属性：　ページ読み込み時に、動画をあらかじめ読み込むかどうかを設定（autoplay属性の指定がある場合、この属性の指定は無視される）
+  none → 動画が再生されるまで何もダウンロードしない
+  metadata → メタデータ（動画のサイズ、トラックリスト、再生時間 等）のみダウンロードする
+  auto → 動画データ全体をダウンロードする。属性値が空の場合はこの扱い。
+playsinline属性：　iOSでvideoタグをインライン再生（iOS10から）
+  全画面表示をせずにその場で再生させることができるのがインライン再生です。
+  インライン再生を可能にするためにはautoplay、muted、playsinlineの３つの属性が必須です。
+  どれか１つでも欠けていると上手くインライン再生されない
+mediagroup属性：　要素のグループ名を指定します。同一文書内で、同じmediagroup属性値を持つvideo要素やaudio要素は、グループとして扱われ、連続再生などが可能になります。
+width属性：　幅を指定する。単位はpxのみで、パーセントなどの可変指定はできません。そのため動画の表示サイズの設定はCSSで設定するのがベストです。
+height属性：　高さを指定する。同上。
+
+-->
+                <!-- ■
+再生範囲の指定
+videoタグ（及びaudioタグ）では、下記の書き方をすることで再生範囲を指定することが出来ます。
+<video src="movie.mp4#t=[starttime][,endtime]"></video>
+※Edge・IEは、今のところ「#t=」に未対応
+【使用例】
+「movie.mp4#t=5,10」5秒時点から10秒時点の範囲を再生
+「movie.mp4#t=,8」始点から8秒時点の範囲を再生
+「movie.mp4#t=,01:30:00」始点から1時間30分の範囲を再生
+「movie.mp4#t=5」5秒時点から最後まで再生
+               -->
+                <p>HTML5のvideoタグによる動画再生</p>
+                <video controls muted playsinline preload="none" poster="firstframe.jpg">
+                  <source src="sample.mp4">
+                  <source src="sample.ogv">
+                  <source src="sample.webm">
+                  <p>動画を再生するには、videoタグをサポートしたブラウザが必要です。</p>
+                </video>
+              </div>
+            </section>
+            <section>
+              <!-- ★definition list（定義リスト） -->
+              <div class="sec_1-6">
+                <h3>■（.sec_1-6）h３_definition list（定義リスト）■</h3>
+                <!-- ■
+用語集やF&Qなどのコーティングで頻繁に使用されます。
+                 -->
+                <dl>
+                  <dt>■definition term（用語）１■</dt>
+                  <dd>■definition description（用語説明）１■</dd>
+                  <dt>■dt２■</dt>
+                  <dd>■dd２■</dd>
+                </dl>
+              </div>
+            </section>
+            <section>
+              <!-- ★pre：Preformatted Text（整形済みテキスト） -->
+              <div class="sec_1-7">
+                <h3>■（.sec_1-7）h３_Preformatted Text（整形済みテキスト）</h3>
+                <!-- 改行や空白をそのまま表示。ソースコードなどの表示に利用。 -->
+                <!-- ■
+通常はスペースの連続、改行、インデントなどはひとつの半角スペースにまとめられてしまいますが、この要素を使うと記述した通りの形で表示されるようになります。
+「タブ」は用いないこと。特殊文字を入れる場合は、文字実体参照に置換する
+                -->
+                <!-- ■
+文字  実体名  説明
+<  &lt;  不等号より小（Less than sign）
+>  &gt;  不等号より大（Greater than sign）
+&  &amp;  アンパサンド（Ampersand）
+"  &quot;  引用符（Quotation mark）
+©  &copy;  著作権記号（Copyright sign）
+®  &reg;  登録商標記号（Registered trademark symbol）
+¥  &yen;  円記号（Yen mark）
+  &nbsp;  改行しない半角空白（Non break space）
+               -->
+                <pre>
+■Pre■
+ 　　　■ソースコードなど■
+</pre>
+              </div>
+            </section>
+          </section>
+          <!-- <blockquote>タグ：引用・転載部分を囲む -->
+          <!-- cite="■引用元のURL■" -->
+          <blockquote cite="■引用元のURL■">
+            <h3>■（sec_1-blockquote）h３_引用・転載■</h3>
+            <p>引用・転載</p>
+          </blockquote>
+          <!-- <footer>：コンテンツの付帯情報・補足情報 -->
+          <footer>
+            <p>■p_日付・署名・カテゴリなどの付帯情報■</p>
+          </footer>
+        </article>
+      </div>
+      <!-- <aside>：蛇足コンテンツ。ex.サイドバー・広告・参考リンク・アイキャッチ画像・補足記事 -->
+      <!-- ■
+周りのコンテンツとの関連が薄く、ページのメインコンテンツには含まれなず、仮に無くなっても影響が無い（少ない）セクション
+       -->
+      <aside>
+        <div class="side-bar">
+          <!-- nav要素は主要なナビゲーションにのみ用いる。多くても３つくらい。リンク集は非nav -->
+          <!-- navの中身はリスト要素であるべき -->
+          <!-- ■
+一つのnav要素の中、複数sectionで区切る
+           -->
+          <nav>
+            <section>
+              <div class="side_bar_popular">
+                <h3>■h3■人気の記事</h3>
+                <ul>
+                  <li><a href="■URL■" target="_blank" rel="noopener noreferrer">PHP オススメ本</a></li>
+                  <li><a href="■URL■">PHP MyAdminの使い方</a></li>
+                  <li><a href="■URL■">今人気のエディタ Top5</a></li>
+                  <li><a href="■URL■">HTMLの基礎</a></li>
+                </ul>
+              </div>
+            </section>
+            <section>
+              <div class="side_bar_recommend">
+                <h3>■h3■オススメリンク</h3>
+                <ul>
+                  <li><a href="#top">top</a></li>
+                  <li><a href="#iframe">iframe</a></li>
+                  <li><a href="#foot">foot</a></li>
+                  <li><a href="■URL■">about</a></li>
+                  <li><a href="■URL■">新規登録</a></li>
+                  <li><a href="■URL■">ログイン</a></li>
+                  <li><a href="■URL■">お問い合わせ</a></li>
+                </ul>
+              </div>
+            </section>
+            <section>
+              <div class="side_bar_category">
+                <h3>■h3■カテゴリ</h3>
+                <ul>
+                  <li><a href="■URL■">■カテゴリー１■</a></li>
+                  <li><a href="■URL■">■カテゴリー２■</a></li>
+                  <li><a href="■URL■">■カテゴリー３■</a></li>
+                </ul>
+              </div>
+            </section>
+          </nav>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <!-- <footer>：コンテンツの付帯情報・補足情報 -->
+  <!-- ex.関連文書へのリンクや内部リンク、著作権（copyright）、サイトマップ -->
+  <footer class="last_foot" id="foot">
+    <div class="container">
+      <img src="./images/logo.png">
+      <p>■p：キャッチコピー■</p>
+      <!-- ©  &copy;  著作権記号（Copyright sign） -->
+      <!-- ®  &reg;  登録商標記号（Registered trademark symbol） -->
+      <small>■small■　Copyright(C)&copy;20■■ ■個人名or会社名■,Allright Reserved.</small>
+    </div>
+  </footer>
+  <!-- CSSのセレクタ操作（IE）、負荷の高いDOM操作、多数のスクリプト（jQuery等）などはページの読み込みをブロックするため、</body>の直前に記述。 -->
+  <!-- ■
+上記スクリプトはブロッキングを起こすので、ドキュメントの一番下に記述することでWebページの読み込みを早めることができる
+jQueryのCDNのバージョンなど複数記述するとjQueryが正しく動作しません。
+
+※CDN（Content Delivery Network）から参照するcss、JavaScriptがある場合、<script>タグや<link>タグにIntegrity 属性を入れよう
+Subresource Integrity (SRI) とは、CDN などから取得したファイルが意図せず改ざんされていないかをブラウザが検証するセキュリティ機能。SRIを利用する際には、取得したファイルのハッシュ値と一致すべきハッシュ値を指定します。以下サイトなどから<script>タグや<link>タグを書く
+https://www.srihash.org/
+Integrityが間違っていると当然ながらエラーで動きません。
+
+crossorigin または crossorigin="" のように属性に空の値を設定すると、 anonymous と同じになります
+<script> 要素で使用すると、ユーザー認証情報を送信せずにスクリプトを実行します。
+  -->
+  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha384-fJU6sGmyn07b+uD1nMk7/iSb4yvaowcueiQhfVgQuD98rfva8mcr1eSvjchfpMrH" crossorigin="anonymous"></script> -->
+  <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+  <!-- スムーススクロール：固定ヘッダーも考慮したページ内リンクのスムーズな移動を実現するライブラリ -->
+  <script src="js/smooth-scroll.polyfills.min.js"></script>
+  <!-- jsは可能であればasync記述して非同期読込 -->
+  <script src="js/テンプ.js" async></script>
+</body></html>
