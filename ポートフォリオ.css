@@ -76,7 +76,7 @@ a:link {
 }
 
 a:visited {
-  color:slateblue;
+  color:gray;
 }
 
 a:hover{
@@ -106,13 +106,13 @@ a:hover{
 }
 
 .wall{
-/*  background: url(./銀河_荒.jpg);*/
-/*  background: url(./銀河_鮮.jpg);*/
-/*  background: url(./銀河_静.jpg);*/
-  background: url(./銀河_もや.jpg);
-/*  background: url(./銀河_白渦.jpg);*/
-/*  background: url(./オーロラ.jpg);*/
-/*  background: url(./満点の星空.jpg);*/
+/*  background: url(./img/銀河_荒.jpg);*/
+/*  background: url(./img/銀河_鮮.jpg);*/
+/*  background: url(./img/銀河_静.jpg);*/
+  background: url(./img/銀河_もや.jpg);
+/*  background: url(./img/銀河_白渦.jpg);*/
+/*  background: url(./img/オーロラ.jpg);*/
+/*  background: url(./img/満点の星空.jpg);*/
   background-size: cover;
 }
 
