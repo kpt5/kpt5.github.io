@@ -5,15 +5,35 @@
 
 $().ready(function () {
 
+  $('#requestfullscreen').click(function() {
+//    $('#faster-than-light').fullscreen();
+    $("body").fullscreen();
+    return false;
+  });
+  
+  $('#exitfullscreen').click(function() {
+    $.fullscreen.exit();
+    return false;
+  });
+  
+  $(document).bind('fscreenchange', function(e, state, elem) {
+    if ($.fullscreen.isFullScreen()) {
+      $('#requestfullscreen').hide();
+      $('#exitfullscreen').show();
+    } else {
+      $('#requestfullscreen').show();
+      $('#exitfullscreen').hide();
+    }
+  });
+
+  
+  
   //  固定ヘッダーも考慮したページ内リンクのスムーズな移動を実現するライブラリ
   var scroll = new SmoothScroll('a[href*="#"]', {
     header: '#top_head',
     //    スクロールスピードが調整出来ない
     speed: 9000,
   });
-
-
-
 
 });
 
