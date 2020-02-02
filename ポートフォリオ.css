@@ -72,11 +72,11 @@ body::selection {
 }
 
 a:link {
-  color:steelblue;
+  color:cornflowerblue;
 }
 
 a:visited {
-  color:cyan;
+  color:steelblue;
 }
 
 a:hover{
