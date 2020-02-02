@@ -39,7 +39,7 @@ p {
 
 /* ★推奨フォント */
 body {
-  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "Osaka", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-family: 'HG正楷書体-PRO', 'Courier', 'OCRB', "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "Osaka", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 
 /*
@@ -66,8 +66,17 @@ body {
   color:white;
 }
 
-a {
-  color:white;
+body::selection {
+  background-color: white;
+  color:black;
+}
+
+a:link {
+  color:steelblue;
+}
+
+a:visited {
+  color:cyan;
 }
 
 a:hover{
@@ -97,7 +106,13 @@ a:hover{
 }
 
 .wall{
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/18515/PIA09959-1280x800_copy.jpg);
+/*  background: url(./銀河_荒.jpg);*/
+/*  background: url(./銀河_鮮.jpg);*/
+/*  background: url(./銀河_静.jpg);*/
+  background: url(./銀河_もや.jpg);
+/*  background: url(./銀河_白渦.jpg);*/
+/*  background: url(./オーロラ.jpg);*/
+/*  background: url(./満点の星空.jpg);*/
   background-size: cover;
 }
 
@@ -262,6 +277,12 @@ a:hover{
 .main {
   float: left;
   width: 79%;
+}
+
+.Courier {
+  font-family: Courier;
+  font-size: 55px;
+  font-size: 5.5rem;
 }
 
 .last_foot {
