@@ -7,7 +7,7 @@ $().ready(function () {
 
   $('#requestfullscreen').click(function() {
 //    $('#faster-than-light').fullscreen();
-    $("body").fullscreen();
+    $("html").fullscreen();
     return false;
   });
   
