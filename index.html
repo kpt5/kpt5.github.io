@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<!-- ■
-言語コードの指定。ほとんどの場合は問題なく表示されるが、ブラウザの設定によってはフォントの選別やプラグイン（翻訳機能）とかがうまく機能しない場合がある
--->
 <html lang="ja">
 
 <head>
@@ -9,14 +6,6 @@
   <!-- IEの互換表示を強制的に標準モードにする -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <!-- charsetの指定はheadタグの一番最初(titleなどの要素内容に日本語を含むかもしれない要素の出現よりも前)で行う -->
-  <!-- ■
-パフォーマンスのために使用する文字のエンコーディング
-meta：META-informationの略
-charset：character setの略。
-最初のオプションとしてHTTPヘッダで指定し、HTTPヘッダとmetaタグでの指定が同じであることを確認。
-文字化けの原因。ファイル保存時の文字コードなどにも気を付ける
-  -->
   <meta charset="utf-8">
 
   <!-- ページタイトル＝サイト名(～30文字程度) -->
@@ -25,11 +14,11 @@ charset：character setの略。
   <!-- content属性にページの紹介文（80～120文字で多くても200文以内）を記述 -->
   <!-- 検索結果に出てきた際にリンクの下に書かれてあるサイトの概要部分になる -->
   <!-- タイトル同様に全ページで同じ記述にする-->
-  <meta name="description" content="■kpt5　紹介ページ■">
+  <meta name="description" content="埼玉県在住のIT技術者　kpt5 の紹介ページ。《 kpt5 とは？ 》《 自己PR 》《 制作物紹介 》《 ワープ体験 》　kpt5 の学習済みの言語は、Java、PHP、HTML5、CSS3、SCSS、JavaScript、SQL、PL/SQL、Ruby、Python、Command Line（Windows・Linux）、bash、csh、VBAの計15言語、フレームワーク・ライブラリはStruts2.3、Ruby on Rails5、jQuery、Reactの4つが学習済みとなっています。これまでのプログラミング学習時間は計900時間に及びます。前職では主にクライアント先でSEとして3年間で計10ものプロジェクトに携わらせていただき、プログラミングの経験こそありませんでしたが、上流工程から下流工程まで様々な経験をしてきています。">
 
   <!-- content属性にページの著者情報を記述 -->
   <!-- SEO的には2015年時点で関係ないようなので、あってもなくても良い -->
-  <meta name="author" content="■kpt5■">
+  <meta name="author" content="kpt5">
 
   <!--  モバイル端末への対応。ページをビューポートの幅に合わせてコンテンツの幅を調整（Android, iOS6以降）-->
   <!--  ズームを許可しない設定「user-scalable=no」は加えない -->
@@ -38,17 +27,11 @@ charset：character setの略。
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- content="yes"の場合、スマートフォンでアクセス時、ブラウザの枠をなくしアプリっぽい動作にする（フルスクリーンモード）（任意） -->
-  <!-- <meta name="apple-mobile-web-app-capable" content="yes">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
 
   <!-- スマートフォンサイト時、電話番号自動リンク停止（任意） -->
   <!--  <meta name="format-detection" content="telephone=no">-->
 
-  <!-- ■
-スタイルシート：できるだけ早く読み込まれるよう、HTMLドキュメントの上の方に記述する。
-HTML5では、script要素、style要素に対する、type属性は不要。非推奨。
-rel：relationの略
-href：hypertext referenceの略
-   -->
   <!-- スタイルシートの<link>タグを指定する場合には、rel属性とhref属性が必須。href属性にスタイルシートファイルのURIを記述。-->
 
   <!-- リセットCSS -->
@@ -63,7 +46,7 @@ ress（ https://github.com/filipelinhares/ress ）がオススメ
   <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
 
   <!-- Font Awesome -->
-  <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
+<!--  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
 
   <link rel="stylesheet" href="./ポートフォリオ.css">
 
@@ -96,22 +79,20 @@ ress（ https://github.com/filipelinhares/ress ）がオススメ
 
 <body>
   <!-- ワーピング画面 -->
-  <div id="faster-than-light">
-    <div class="scene">
-      <div class="wrap">
-        <div class="wall wall-right"></div>
-        <div class="wall wall-left"></div>
-        <div class="wall wall-top"></div>
-        <div class="wall wall-bottom"></div>
-        <div class="wall wall-back"></div>
-      </div>
-      <div class="wrap">
-        <div class="wall wall-right"></div>
-        <div class="wall wall-left"></div>
-        <div class="wall wall-top"></div>
-        <div class="wall wall-bottom"></div>
-        <div class="wall wall-back"></div>
-      </div>
+  <div class="scene" id="faster-than-light">
+    <div class="wrap">
+      <div class="wall wall-right"></div>
+      <div class="wall wall-left"></div>
+      <div class="wall wall-top"></div>
+      <div class="wall wall-bottom"></div>
+      <div class="wall wall-back"></div>
+    </div>
+    <div class="wrap">
+      <div class="wall wall-right"></div>
+      <div class="wall wall-left"></div>
+      <div class="wall wall-top"></div>
+      <div class="wall wall-bottom"></div>
+      <div class="wall wall-back"></div>
     </div>
   </div>
   <!-- ★ロゴ画像と上部ナビ -->
@@ -208,13 +189,13 @@ ex.コメント部分を含んだ記事全体・コメントの一つ一つ
               <br>　・各種エディタの行の折り返し
               <br>　・HomeまたはCtrl + Homeキー（ページ頭にカーソル移動）
               <br>　・Windowsキー + 横矢印キー（ウィンドウを横半分に配置）
+              <br>　・Ctrl＋N（新規ファイルの作成・ウィンドウの複製）
             </p>
           </section>
           <div class="between_section">　</div>
           <section>
             <h2>《 どんなIT技術者になりたいか？ 》</h2>
-            <p>　プログラミング開発を３年以上経験し、
-              最終的には基本設計や、自動生成ツール（GeneXus【ジェネクサス】など）を用いた開発のスペシャリストを目指したいです。
+            <p>　プログラミング開発を３年以上経験した上で、最終的には基本設計や、自動生成ツール（GeneXus【ジェネクサス】など）を用いた開発のスペシャリストを目指したいです。
             </p>
           </section>
           <div class="between_section">　</div>
@@ -272,7 +253,7 @@ ex.コメント部分を含んだ記事全体・コメントの一つ一つ
               <br>　また、技術力強化のため、直近の8ヵ月ほどで研修を含め計900時間に及ぶプログラミング学習も進めており、基礎知識には自信があります。
               <br>現在までプログラミング関連の書籍も6冊読了しました。
               <br>また、Progateというプログラミングの学習サイトでは9言語3フレームワークに関する学習コースを完了させました。
-              <br>これで現在言語は、Java、PHP、HTML5、CSS3、SCSS、JavaScript、SQL、PL/SQL、Ruby、Python、Command Line（Windows・Linux）、bash、csh、VBAの計15言語、フレームワーク・ライブラリはStruts2.3、Ruby on Rails5、jQuery、Reactの4つが学習済みとなっています。
+              <br>これで現在言語は、Java（JSP・Servletを含む）、PHP、HTML5、CSS3、SCSS、JavaScript、SQL、PL/SQL、Ruby、Python、Command Line（Windows・Linux）、bash、csh、VBAの計15言語、フレームワーク・ライブラリはStruts2.3、Ruby on Rails5、jQuery、Reactの4つが学習済みとなっています。
               <br>
               <br>　他にもドットインストールやpaiza、CODEPREPといったプログラミングの学習サイトも活用し、研修と並行して自主的に学習を進めています。
               <br>
@@ -288,25 +269,36 @@ ex.コメント部分を含んだ記事全体・コメントの一つ一つ
               <!-- リストタグ直下にはliタグしか置けない。liタグ内部には見出しタグや画像タグなどを入れてOK。ただし、各liタグ内のタグ構造は統一する。 -->
               <ol>
                 <li>
+<!--                 <span class="fa fa-facebook"></span>-->
                   <h4><a href="https://rails-progate.herokuapp.com/" target="_blank" rel="noopener noreferrer">【自主学習】Progateで制作した短文投稿サイト</a></h4>
-                  <span>－アカウント登録・編集・ログイン認証
-                    <br>－投稿・編集・削除機能
-                    <br>－いいね！ボタン
-                    <br>－画像のアップ　など
+                  <span> 　－アカウント登録・編集・ログイン認証
+                    <br> 　－投稿・編集・削除機能
+                    <br> 　－いいね！ボタン
+                    <br> 　－画像のアップ　など
                   </span>
                   <p>※初回アクセス時はサーバー起動のため、表示に10秒ほどの時間がかかります。</p>
                 </li>
                 <li>
                   <h4><a href="https://kpt5.github.io/StaticWebPage-Progate/" target="_blank" rel="noopener noreferrer">【自主学習】Progateで制作した静的Webページ</a></h4>
-                  <span>－マウスオーバー・マウスクリックアクション
-                    <br>－Font Awesome
-                    <br>－レスポンシブ・デザイン　など
+                  <span> 　－マウスオーバー・マウスクリックアクション
+                    <br> 　－Font Awesome
+                    <br> 　－レスポンシブ・デザイン　など
+                  </span>
+                </li>
+                <li>
+                  <h4><a href="https://kpt5.github.io/TypicalPattern-jQuery/" target="_blank" rel="noopener noreferrer">【自主学習】jQueryの典型パターン集（自作）</a></h4>
+                  <span> 　－スライド
+                    <br> 　－モーダルの表示・非表示
+                    <br> 　－hoverイベント
+                    <br> 　－アコーディオン
+                    <br> 　－フォーム連携
+                    <br> 　－切り替え機能付きタブメニュー　など
                   </span>
                 </li>
                 <li>
                   <h4><a href="https://kpt5.github.io/StaticWebPage-ProgrammerCollege/" target="_blank" rel="noopener noreferrer">【研修課題】プログラマカレッジで制作した静的Webページ</a></h4>
-                  <span>－2カラムレイアウト
-                    <br>－スライドショーの実装　など
+                  <span> 　－2カラムレイアウト
+                    <br> 　－スライドショーの実装　など
                   </span>
                 </li>
               </ol>
@@ -315,29 +307,17 @@ ex.コメント部分を含んだ記事全体・コメントの一つ一つ
               <h3>□その他　静的Webページ</h3>
               <ul>
                 <li>
-                  <a href="https://kpt5.github.io/SelfMadeTemplate-HTML_CSS_JS/" target="_blank" rel="noopener noreferrer">　・【自主学習】HTML・CSS・JavaScriptのコードテンプレート（自作）</a>
-                  <br><span>　　－セクショニング・コンテンツ
-                    <br>　　－リスト・表
-                    <br>　　－入力・送信form
-                    <br>　　－iframe・video　など
+                  <h4><a href="https://kpt5.github.io/SelfMadeTemplate-HTML_CSS_JS/" target="_blank" rel="noopener noreferrer">　・【自主学習】HTML・CSS・JavaScriptのコードテンプレート（自作）</a></h4>
+                  <span>　　　－セクショニング・コンテンツ
+                    <br>　　　－リスト・表
+                    <br>　　　－入力・送信form
+                    <br>　　　－iframe・video　など
                   </span>
                 </li>
-                <br>
                 <li>
-                  <a href="https://kpt5.github.io/TypicalPattern-jQuery/" target="_blank" rel="noopener noreferrer">　・【自主学習】jQueryの典型パターン集（自作）</a>
-                  <br><span>　　－スライド
-                    <br>　　－モーダルの表示・非表示
-                    <br>　　－hoverイベント
-                    <br>　　－アコーディオン
-                    <br>　　－フォーム連携
-                    <br>　　－切り替え機能付きタブメニュー　など
-                  </span>
-                </li>
-                <br>
-                <li>
-                  <a href="https://kpt5.github.io/JS_Exercise-ProgrammerCollege/" target="_blank" rel="noopener noreferrer">　・【研修課題】プログラマカレッジで制作したJavaScriptの演習課題</a>
-                  <br><span>　　－関数・for文の利用
-                    <br>　　－jsファイルから画面への出力　など
+                  <h4><a href="https://kpt5.github.io/JS_Exercise-ProgrammerCollege/" target="_blank" rel="noopener noreferrer">　・【研修課題】プログラマカレッジで制作したJavaScriptの演習課題</a></h4>
+                  <span>　　　－関数・for文の利用
+                    <br>　　　－jsファイルから画面への出力　など
                   </span>
                 </li>
               </ul>
@@ -346,16 +326,16 @@ ex.コメント部分を含んだ記事全体・コメントの一つ一つ
               <h3>■プログラム</h3>
               <ul>
                 <li>
-                  <a href="https://github.com/kpt5/ProgrammerCollege" target="_blank" rel="noopener noreferrer">　【研修課題】プログラマカレッジでの制作物（Java・PHP）</a>
+                  <a href="https://github.com/kpt5/ProgrammerCollege" target="_blank" rel="noopener noreferrer">　【研修課題】プログラマカレッジでの制作物（ Java・PHP ）</a>
                   <span>（ <span class="Courier">GitHub </span>のアカウントページ内へのリンクになります。 ）</span>
-                  <p>　　－【Java】JavaとMySQLを使ったJDBCプログラミング（データベース接続）とDOAパターン
-                    <br>　　－【Java】Javaサーバーサイド技術（JSP/Servlet）
-                    <br>　　－【Java】アカウント登録・ログイン認証
-                    <br>　　－【Java】購入履歴の表示・保持・削除機能
-                    <br>　　－【PHP】フォーム連携
-                    <br>　　－【PHP】投稿機能　など
+                  <p>　　－【 Java 】JavaとMySQLを使ったJDBCプログラミング（データベース接続）とDOAパターン
+                    <br>　　－【 Java 】Javaサーバーサイド技術（JSP/Servlet）
+                    <br>　　－【 Java 】アカウント登録・ログイン認証
+                    <br>　　－【 Java 】購入履歴の表示・保持・削除機能
+                    <br>　　－【 PHP 】フォーム連携
+                    <br>　　－【 PHP 】投稿機能　など
                   </p>
-                  
+
                 </li>
               </ul>
             </div>
@@ -380,6 +360,9 @@ ex.コメント部分を含んだ記事全体・コメントの一つ一つ
       <!-- ©  &copy;  著作権記号（Copyright sign） -->
       <!-- ®  &reg;  登録商標記号（Registered trademark symbol） -->
       <small>Copyright&copy;2020 kpt5, Allright Reserved.</small>
+      <a href="http://kpt5.github.io/index.html">
+        <img src="https://ga-beacon.appspot.com/UA-157749034-1/kpt5.github.io/index.html" />
+      </a>
     </div>
   </footer>
   <div class="nav_space">　</div>
