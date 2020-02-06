@@ -251,7 +251,7 @@ ul {
 /*  上　左右　下*/
   padding: 10px 30px 20px;
   border-radius: 10px;
-  width: 35%;
+  width: 40%;
   /*  width: 450px;*/
   background-color: #333;
   text-align: center;
@@ -268,7 +268,7 @@ ul {
 .fa-times {
   position: relative;
   top: -90px;
-  left: 170px;
+  left: 195px;
   color: rgba(128, 128, 128, 0.7);
   cursor: pointer;
 }
