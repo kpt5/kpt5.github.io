@@ -46,8 +46,8 @@ ress（ https://github.com/filipelinhares/ress ）がオススメ
   <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
 
   <!-- Font Awesome -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 
   <link rel="stylesheet" href="./ポートフォリオ.css">
 
@@ -96,6 +96,22 @@ ress（ https://github.com/filipelinhares/ress ）がオススメ
       <div class="wall wall-back"></div>
     </div>
   </div>
+  <!-- モーダル：clickイベントなどに基づいて、表示/非表示が行われる要素 -->
+  <!-- ①モーダルをCSSで非表示にする -->
+  <!-- ②ログインボタンにclickイベントを設定 -->
+  <!-- ③clickイベントでモーダルを表示 -->
+  <div class="inquiry_modal_wrapper" id="inquiry_modal">
+    <div class="modal">
+      <h2>お問い合わせ先はこちら</h2>
+      <i class="fa fa-2x fa-times" id="close_inquiry_modal"></i>
+      <!-- <b class="close_btn">X</b> -->
+      <!-- <span class="Courier">-->
+      <p>Email： keep.trying.555■gmail.com
+        <br><br>※メール送信の際には、■の部分を
+        <br>アットマークに置き換えてください。</p>
+    </div>
+  </div>
+  <p class="Note">※Edgeブラウザではトップのワープスクリーンが小さくなってしまうので、Google Chromeブラウザを利用して閲覧することをお勧めします。</p>
   <!-- ★ロゴ画像と上部ナビ -->
   <header class="top_head" id="top_head">
     <div class="container">
@@ -149,6 +165,9 @@ window.opener にアクセスできたのは、以下の条件が全て満たさ
             <li><a href="#top">コンテンツTOP</a></li>
             <li><a href="#self_PR">自己PR</a></li>
             <li><a href="#portfolio">制作物紹介</a></li>
+            <li>
+              <div id="inquiry_btn">お問い合わせ</div>
+            </li>
           </ul>
         </div>
       </nav>
@@ -418,6 +437,4 @@ crossorigin または crossorigin="" のように属性に空の値を設定す�
   <script src="jquery.fullscreen.min.js"></script>
   <!-- jsは可能であればasync記述して非同期読込 -->
   <script src="ポートフォリオ.js" async></script>
-</body>
-
-</html>
+</body></html>

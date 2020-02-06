@@ -5,18 +5,23 @@
 
 $().ready(function () {
 
-  $('#requestfullscreen').click(function() {
-//    $('#faster-than-light').fullscreen();
-    $("html").fullscreen();
+  //  ワープ体験
+  $('#requestfullscreen').click(function () {
+    //    $("html,body").animate({
+    //      scrollTop: $('#faster-than-light').offset().top
+    //    });
+    //    $('#faster-than-light').fullscreen();
+    $("body").fullscreen();
     return false;
   });
-  
-  $('#exitfullscreen').click(function() {
+
+  $('#exitfullscreen').click(function () {
     $.fullscreen.exit();
     return false;
   });
-  
-  $(document).bind('fscreenchange', function(e, state, elem) {
+
+  //  ワープ体験ボタン切り替え
+  $(document).bind('fscreenchange', function (e, state, elem) {
     if ($.fullscreen.isFullScreen()) {
       $('#requestfullscreen').hide();
       $('#exitfullscreen').show();
@@ -26,8 +31,17 @@ $().ready(function () {
     }
   });
 
-  
-  
+  //  モーダルの表示・非表示
+  //  ログインボタン
+  $('#inquiry_btn').click(function () {
+    $('#inquiry_modal').fadeIn();
+  });
+
+  //  モーダル閉じるボタン
+  $('#close_inquiry_modal').click(function () {
+    $('#inquiry_modal').fadeOut();
+  });
+
   //  固定ヘッダーも考慮したページ内リンクのスムーズな移動を実現するライブラリ
   var scroll = new SmoothScroll('a[href*="#"]', {
     header: '#top_head',
