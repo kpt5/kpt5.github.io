@@ -89,6 +89,16 @@ a:hover {
   text-decoration: underline;
 }
 
+/* 外部リンクのアイコン表示 */
+ a[target="_blank"]:not(.noicon):after{
+  font-family: "Font Awesome 5 Free";
+  content: "\f35d";
+  margin: 0 4px;
+  font-weight: 600;
+  font-size: 0.8em;
+  font-size: 1.6rem;
+}
+
 ul {
   margin: 0;
   padding: 0;
